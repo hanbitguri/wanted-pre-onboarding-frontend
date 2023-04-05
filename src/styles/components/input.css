@@ -1,0 +1,9 @@
+.signup-input-id,
+.signup-input-pw {
+    display: block;
+    width: 200px;
+    height: 20px;
+    padding: 4px;
+    font-size: 16px;
+    margin-bottom: 32px;
+}
