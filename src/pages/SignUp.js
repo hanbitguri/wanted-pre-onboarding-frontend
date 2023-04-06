@@ -24,6 +24,13 @@ function SignUp() {
         }
         setIsValid(false)
     }
+    const registHandler = () => {
+        fetch('https://www.pre-onboarding-selection-task.shop/auth/signup', {
+            method: 'POST',
+            body: {},
+            headers: 'Content-Type : application/json',
+        })
+    }
 
     return (
         <form className="signup-form" onSubmit={(e) => e.preventDefault()}>
@@ -48,6 +55,7 @@ function SignUp() {
                     content="가입하기"
                     dti="signup-button"
                     disabled={!isValid}
+                    regist={registHandler}
                 ></Button>
             </div>
         </form>
