@@ -1,5 +1,7 @@
 .signup-input-id,
-.signup-input-pw {
+.signup-input-pw,
+.signin-input-id,
+.signin-input-pw {
     display: block;
     width: 200px;
     height: 20px;

@@ -1,6 +1,7 @@
 .main-signin,
 .main-signup,
-.signup-button {
+.signup-button,
+.signin-button {
     display: block;
     width: 200px;
     height: 28px;
