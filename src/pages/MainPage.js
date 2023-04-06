@@ -1,4 +1,4 @@
-import '../styles/main-page.css'
+import '../styles/pages/main-page.css'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 
