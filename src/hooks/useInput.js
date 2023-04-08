@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { TODO_URL } from '../utils/constant'
 
-export const useInput = (initEmail, initPassword) => {
+export const useInput = (initValue, initValue2) => {
     const navigate = useNavigate()
     const [isValid, setIsValid] = useState(false)
 
-    const [enteredEmail, setEnteredEmail] = useState(initEmail)
-    const [enteredPassword, setEnteredPassword] = useState(initPassword)
+    const [enteredValue, setEnteredValue] = useState(initValue)
+    const [enteredValue2, setEnteredValue2] = useState(initValue2)
 
     const idRegex = /.*@.*/gi
     const pwRegex = /.{8,}/gi
@@ -14,15 +15,15 @@ export const useInput = (initEmail, initPassword) => {
     const enteredIdisValid = (string) => idRegex.test(string)
     const enteredPwisValid = (string) => pwRegex.test(string)
 
-    const emailChangeHandler = (e) => {
-        setEnteredEmail(e.target.value)
+    const valueChangeHandler = (e) => {
+        setEnteredValue(e.target.value)
     }
-    const passwordChangeHandler = (e) => {
-        setEnteredPassword(e.target.value)
+    const valueChangeHandler2 = (e) => {
+        setEnteredValue2(e.target.value)
     }
 
     const vaildHandler = () => {
-        if (enteredIdisValid(enteredEmail) && enteredPwisValid(enteredPassword)) {
+        if (enteredIdisValid(enteredValue) && enteredPwisValid(enteredValue2)) {
             setIsValid(true)
             return
         }
@@ -36,8 +37,8 @@ export const useInput = (initEmail, initPassword) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                email: enteredEmail,
-                password: enteredPassword,
+                email: enteredValue,
+                password: enteredValue2,
             }),
         }).then((resp) => {
             if (resp.ok) {
@@ -54,8 +55,8 @@ export const useInput = (initEmail, initPassword) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                email: enteredEmail,
-                password: enteredPassword,
+                email: enteredValue,
+                password: enteredValue2,
             }),
         })
             .then((resp) => {
@@ -64,10 +65,18 @@ export const useInput = (initEmail, initPassword) => {
                 }
             })
             .then((key) => {
-                localStorage.setItem(Object.keys(key), Object.values(key))
+                const token = key.access_token
+                localStorage.setItem('access_token', token)
                 navigate('/todo')
             })
     }
 
-    return { isValid, emailChangeHandler, passwordChangeHandler, vaildHandler, onSignUpHandler, onSigninHandler }
+    return {
+        isValid,
+        valueChangeHandler,
+        valueChangeHandler2,
+        vaildHandler,
+        onSignUpHandler,
+        onSigninHandler,
+    }
 }

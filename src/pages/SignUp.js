@@ -4,7 +4,7 @@ import '../styles/components/input.css'
 import { useInput } from '../hooks/useInput'
 
 function SignUp() {
-    const { isValid, emailChangeHandler, passwordChangeHandler, vaildHandler, onSignUpHandler } = useInput('', '')
+    const { isValid, valueChangeHandler, valueChangeHandler2, vaildHandler, onSignUpHandler } = useInput('', '')
 
     return (
         <form className="signup-form" onSubmit={onSignUpHandler}>
@@ -14,14 +14,14 @@ function SignUp() {
                     className="signup-input-id"
                     type="text"
                     data-test-id="email-input"
-                    onChangeHandler={emailChangeHandler}
+                    onChangeHandler={valueChangeHandler}
                     placeholder="이메일을 입력해주세요."
                 />
                 <input
                     className="signup-input-pw"
                     type="password"
                     data-test-id="password-input"
-                    onChangeHandler={passwordChangeHandler}
+                    onChangeHandler={valueChangeHandler2}
                     onBlurHandler={vaildHandler}
                     placeholder="비밀번호를 입력해주세요."
                 />

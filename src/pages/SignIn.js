@@ -8,7 +8,7 @@ import { useInput } from '../hooks/useInput'
 //123456789
 
 function Signin() {
-    const { isValid, emailChangeHandler, passwordChangeHandler, vaildHandler, onSigninHandler } = useInput('', '')
+    const { isValid, valueChangeHandler, valueChangeHandler2, vaildHandler, onSigninHandler } = useInput('', '')
 
     return (
         <form className="signin-form" onSubmit={onSigninHandler}>
@@ -19,14 +19,14 @@ function Signin() {
                     type="text"
                     data-test-id="email-input"
                     placeholder="이메일을 입력해주세요."
-                    onChange={emailChangeHandler}
+                    onChange={valueChangeHandler}
                 />
                 <input
                     className="signin-input-pw"
                     type="password"
                     data-test-id="password-input"
                     placeholder="비밀번호를 입력해주세요."
-                    onChange={passwordChangeHandler}
+                    onChange={valueChangeHandler2}
                     onBlur={vaildHandler}
                 />
                 <button className="signin-button" type="submit" data-test-id="signin-button" disabled={!isValid}>
