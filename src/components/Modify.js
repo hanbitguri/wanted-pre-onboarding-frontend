@@ -7,11 +7,13 @@ function Modify({ setModify, todo, getTodo }) {
             <input
                 type="text"
                 className="todo-modify-input"
+                data-testid="modify-input"
                 onChange={(e) => {
                     setEnteredValue(e.target.value)
                 }}
             />
             <button
+                data-testid="submit-button"
                 onClick={(e) => {
                     e.preventDefault()
                     fetch(TODO_URL(todo.id), {
@@ -35,6 +37,7 @@ function Modify({ setModify, todo, getTodo }) {
                 제출
             </button>
             <button
+                data-testid="cancel-button"
                 onClick={(e) => {
                     e.preventDefault()
                     setModify(false)
