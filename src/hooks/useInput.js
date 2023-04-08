@@ -28,7 +28,7 @@ export const useInput = (initEmail, initPassword) => {
         }
         setIsValid(false)
     }
-    const onSubmitHandler = (e) => {
+    const onSignUpHandler = (e) => {
         e.preventDefault()
         fetch('https://www.pre-onboarding-selection-task.shop/auth/signup', {
             method: 'POST',
@@ -46,6 +46,28 @@ export const useInput = (initEmail, initPassword) => {
             }
         })
     }
+    const onSigninHandler = (e) => {
+        e.preventDefault()
+        fetch('https://www.pre-onboarding-selection-task.shop/auth/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: enteredEmail,
+                password: enteredPassword,
+            }),
+        })
+            .then((resp) => {
+                if (resp.ok) {
+                    return resp.json()
+                }
+            })
+            .then((key) => {
+                localStorage.setItem(Object.keys(key), Object.values(key))
+                navigate('/todo')
+            })
+    }
 
-    return [isValid, emailChangeHandler, passwordChangeHandler, vaildHandler, onSubmitHandler]
+    return { isValid, emailChangeHandler, passwordChangeHandler, vaildHandler, onSignUpHandler, onSigninHandler }
 }
