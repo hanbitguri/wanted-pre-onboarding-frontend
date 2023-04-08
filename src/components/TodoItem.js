@@ -10,17 +10,17 @@ function TodoItem({ todo, getTodo }) {
             <label>
                 <input
                     type="checkbox"
-                    defaultChecked={todo.isCompleted}
+                    defaultChecked={todo?.isCompleted}
                     onChange={() => {
-                        fetch(TODO_URL(todo.id), {
+                        fetch(TODO_URL(todo?.id), {
                             method: 'PUT',
                             headers: {
                                 Authorization: ` Bearer ${localStorage.getItem('access_token')}`,
                                 'Content-Type': 'application/json',
                             },
                             body: JSON.stringify({
-                                todo: todo.todo,
-                                isCompleted: !todo.isCompleted,
+                                todo: todo?.todo,
+                                isCompleted: !todo?.isCompleted,
                             }),
                         })
                     }}
@@ -29,9 +29,10 @@ function TodoItem({ todo, getTodo }) {
                     <Modify setModify={setModify} todo={todo} getTodo={getTodo}></Modify>
                 ) : (
                     <div>
-                        <span>{todo.todo}</span>
+                        <span>{todo?.todo}</span>
                         <button
                             className="todo-modify-button"
+                            data-testid="modify-button"
                             onClick={(e) => {
                                 e.preventDefault()
                                 setModify(true)
@@ -41,9 +42,10 @@ function TodoItem({ todo, getTodo }) {
                         </button>
                         <button
                             className="todo-remove-button"
+                            data-testid="delete-button"
                             onClick={(e) => {
                                 e.preventDefault()
-                                fetch(TODO_URL(todo.id), {
+                                fetch(TODO_URL(todo?.id), {
                                     method: 'DELETE',
                                     headers: {
                                         Authorization: `Bearer ${localStorage.getItem('access_token')}`,

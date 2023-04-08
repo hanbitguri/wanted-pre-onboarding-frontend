@@ -1,16 +1,18 @@
 import '../styles/pages/main-page.css'
+import '../styles/components/button.css'
 import { Link } from 'react-router-dom'
-import Button from '../components/Button'
-
 function MainPage() {
     return (
         <>
             <div className="main-auth">
                 <Link to={'/signin'}>
-                    <Button className="main-signin" content="로그인" />
+                    <button className="main-signin">로그인</button>
                 </Link>
                 <Link to={'/signup'}>
-                    <Button className="main-signup" content="회원가입" />
+                    <button className="main-signup">회원가입</button>
+                </Link>
+                <Link to={'/todo'}>
+                    <button className="main-signin">투두리스트</button>
                 </Link>
             </div>
         </>
