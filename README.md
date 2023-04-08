@@ -21,7 +21,7 @@
 
 
 <p align="middle">
-  <a href="">🖥️ 배포링크</a>
+  <a href="https://hanbitguri.github.io/wanted-pre-onboarding-frontend/">🖥️ 배포링크</a>
 </p>
 
 <br/>
