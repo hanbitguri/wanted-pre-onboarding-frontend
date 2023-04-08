@@ -1,37 +1,33 @@
 import '../styles/pages/signup-page.css'
-import Button from '../components/Button'
-import Input from '../components/Input'
+import '../styles/components/button.css'
+import '../styles/components/input.css'
 import { useInput } from '../hooks/useInput'
 
 function SignUp() {
-    const [isValid, emailChangeHandler, passwordChangeHandler, vaildHandler, onSubmitHandler] = useInput('', '')
+    const { isValid, emailChangeHandler, passwordChangeHandler, vaildHandler, onSignUpHandler } = useInput('', '')
 
     return (
-        <form className="signup-form" onSubmit={onSubmitHandler}>
+        <form className="signup-form" onSubmit={onSignUpHandler}>
             <h2 className="signup-title">회원가입</h2>
             <div className="signup-main">
-                <Input
+                <input
                     className="signup-input-id"
                     type="text"
-                    dti="email-input"
+                    data-test-id="email-input"
                     onChangeHandler={emailChangeHandler}
                     placeholder="이메일을 입력해주세요."
                 />
-                <Input
+                <input
                     className="signup-input-pw"
                     type="password"
-                    dti="password-input"
+                    data-test-id="password-input"
                     onChangeHandler={passwordChangeHandler}
                     onBlurHandler={vaildHandler}
                     placeholder="비밀번호를 입력해주세요."
                 />
-                <Button
-                    className="signup-button"
-                    type="submit"
-                    content="가입하기"
-                    dti="signup-button"
-                    disabled={!isValid}
-                ></Button>
+                <button className="signup-button" type="submit" data-test-id="signup-button" disabled={!isValid}>
+                    가입하기
+                </button>
             </div>
         </form>
     )
