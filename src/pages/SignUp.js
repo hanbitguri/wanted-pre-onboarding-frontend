@@ -14,15 +14,15 @@ function SignUp() {
                     className="signup-input-id"
                     type="text"
                     data-test-id="email-input"
-                    onChangeHandler={valueChangeHandler}
+                    onChange={valueChangeHandler}
                     placeholder="이메일을 입력해주세요."
                 />
                 <input
                     className="signup-input-pw"
                     type="password"
                     data-test-id="password-input"
-                    onChangeHandler={valueChangeHandler2}
-                    onBlurHandler={vaildHandler}
+                    onChange={valueChangeHandler2}
+                    onBlur={vaildHandler}
                     placeholder="비밀번호를 입력해주세요."
                 />
                 <button className="signup-button" type="submit" data-test-id="signup-button" disabled={!isValid}>
