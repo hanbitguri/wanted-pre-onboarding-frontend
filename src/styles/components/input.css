@@ -1,7 +1,8 @@
 .signup-input-id,
 .signup-input-pw,
 .signin-input-id,
-.signin-input-pw {
+.signin-input-pw,
+.add-todo-input {
     display: block;
     width: 200px;
     height: 20px;

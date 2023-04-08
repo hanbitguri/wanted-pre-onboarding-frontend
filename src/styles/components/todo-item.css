@@ -1,0 +1,12 @@
+.todo-item {
+    display: flex;
+    width: 250px;
+    flex-grow: 1;
+    margin-bottom: 12px;
+}
+label {
+    display: flex;
+}
+.todo-modify-input {
+    width: 100px;
+}
