@@ -4,9 +4,6 @@ import '../styles/components/input.css'
 import { Link } from 'react-router-dom'
 import { useInput } from '../hooks/useInput'
 
-//cuen@hanbitguri.com
-//123456789
-
 function Signin({ setToken }) {
   const { isValid, valueChangeHandler, valueChangeHandler2, vaildHandler, onSigninHandler } = useInput('', '')
 

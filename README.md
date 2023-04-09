@@ -1,4 +1,3 @@
-
 <br/>
 <p align="middle">
   
@@ -19,7 +18,6 @@
 
 <br/>
 
-
 <p align="middle">
   <a href="https://hanbitguri.github.io/wanted-pre-onboarding-frontend/">🖥️ 배포링크</a>
 </p>
@@ -29,7 +27,6 @@
 ## 🎯 프로젝트 실행방법
 
 `npm install` -> `npm start`
-
 
 ## 🎯 요구사항 및 API 스펙
 
