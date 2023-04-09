@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { TODO_URL } from '../utils/constant'
 
 export const useInput = (initValue, initValue2) => {
   const navigate = useNavigate()
