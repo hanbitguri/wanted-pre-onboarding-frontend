@@ -69,6 +69,7 @@ export const useInput = (initValue, initValue2) => {
         localStorage.setItem('access_token', token)
       })
       .then((key) => {
+        alert('로그인 되었습니다.')
         navigate('/todo')
       })
   }
