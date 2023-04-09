@@ -6,11 +6,13 @@ import SignUp from './pages/SignUp'
 import TodoList from './pages/TodoList'
 
 function App() {
-  const token = localStorage.getItem('access_token')
-  const [isLogin, setIsLogin] = useState(false)
+  const [token, setToken] = useState(localStorage.getItem('access_token'))
 
   useEffect(() => {
-    token && setIsLogin(true)
+    const savedToken = localStorage.getItem('access_token')
+    if (savedToken) {
+      setToken(savedToken)
+    }
   }, [])
 
   return (
@@ -18,8 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/todo" element={token ? <TodoList /> : <Navigate to={'/signin'} replace={true} />} />
+        <Route path="/signin" element={<SignIn setToken={setToken} />} />
+        <Route path="/todo" element={token ? <TodoList /> : <Navigate to={'/signin'} />} />
       </Routes>
     </article>
   )

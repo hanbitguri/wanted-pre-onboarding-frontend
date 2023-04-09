@@ -47,8 +47,7 @@ export const useInput = (initValue, initValue2) => {
       }
     })
   }
-  const onSigninHandler = (e) => {
-    e.preventDefault()
+  const onSigninHandler = (setToken) => {
     fetch('https://www.pre-onboarding-selection-task.shop/auth/signin', {
       method: 'POST',
       headers: {
@@ -67,9 +66,9 @@ export const useInput = (initValue, initValue2) => {
       .then((key) => {
         const token = key.access_token
         localStorage.setItem('access_token', token)
+        setToken(token)
       })
-      .then((key) => {
-        alert('로그인 되었습니다.')
+      .then(() => {
         navigate('/todo')
       })
   }
